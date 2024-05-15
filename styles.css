@@ -1,0 +1,284 @@
+/*  font-family: "Roboto Mono", monospace;
+    font-family: "Inconsolata", monospace;  */
+
+/* NORMALIZACION: (Anula las caracteristicas default del navegador)*/
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box; /* Hace que el Padding & Border No Afectan al Wdth y Hght del Elemento */
+    font-family: "Inconsolata", monospace;
+    list-style: none; /* Quitar Puntos & Decoracion de las listas */
+    text-decoration: none; /* Lo mismo pero con los textos, putnualmente los enlaces */
+    color: white;
+}
+
+header{
+    position: fixed; /* Esto deja al header fijo en la parte superior */
+    right: 0;
+    top: 0;
+    z-index: 100; /*  Z-Index alto para que mantenga prioridad */
+
+    display: flex;  /* Esto hara que los elementos se pongan en linea */
+    align-items: center; /* Centra vertcialmente porque usamos flex (row) */
+    justify-content: space-between;
+    
+    background-color: transparent;
+    padding: 15px 3%; /* Ejes ( Y ; X ) */
+    width: 100%;
+}
+
+.logo{
+    font-size:  30px;
+    font-weight: 800; /* Este es el grosor de las letras */
+}
+
+.navlist{
+    display: flex; /* Sirve para los elementos de la lista se pongan en linea */
+}
+
+.navlist a{
+    margin-left: 60px; /* Para separar las palabras */
+    font-size: 20px;
+    font-weight: 600;
+    border-bottom: 2px solid transparent; /* Subrayado Transparente */
+    transition: all .5 ease-out; /* Este es para transicionar las "animaciones" de un estado a otro ante una accion desencadenante */
+}
+
+.navlist a:hover{
+    border-bottom: 2px solid white;
+}
+
+#menu-icon{
+    display: none;
+    /* Esta es una buena forma para transicionar elementos sin que el diseño original de la web se vea afectado */
+}
+
+#menu-icon{
+    font-size: 40px;
+    z-index: 101;
+    cursor: pointer; /* Para que cambie al mouse a modo action */
+}
+
+#menu-toggle{
+    display: none; /* Esto va en display:none para que nunca se vea el checkbox */
+}
+
+.menu-icon-action{
+    display: none; /* Para que no se le pueda hacer click antes de la transicion */
+}
+
+.hero{
+    height: 100%;
+    width: 100%;
+    min-height: 100vh;
+    background: linear-gradient(245.59deg, #31494e 0%, #385e70 25%, #131313 75%); /*  Fondo de color gradiente  */
+    position: relative; /*  Relativo al contenedor | Permite el uso de top bottom right left  */
+    display: grid; /*  Para dividir la seccion en dos columnas  */
+    grid-template-columns: 2fr 1fr; /*  Las columnas  */
+    align-items: center; /*  Para alinear verticalmente (en Y)  */
+    gap: 2rem; /* Espacio entre las dos columnas   */
+}
+
+.hero{
+    padding: 0 8%;
+}
+
+.hero-text h5{
+    font-size: 2vw;
+    font-weight: 400;
+    margin-bottom: 30px;
+}
+
+.hero-text h4{
+    font-size: 2.25vw;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.hero-text h1{
+    font-family: "Roboto Mono", monospace;
+    font-size: 2.9vw;
+    line-height: 1;
+    margin: 30px 0;
+}
+
+.hero-text p{
+    font-size: 1.5vw;
+    margin-bottom: 35px;
+    line-height: 1.5;
+}
+
+.hero-img img{
+    width: 400px;
+    border-radius: 50%;
+    margin: 10% 0 0 10%;
+    border: #315262 solid 5px;
+    height: auto;
+    transition: opacity 0.5s linear;
+}
+
+.hero-img img:hover{
+    opacity: 0.7;
+}
+
+.hero-text a{
+    display: inline-block; /* Para poder darle ancho y alto */
+    background-color: #4d4d4d;
+    border: 1px solid transparent;
+    padding: 15px 30px;
+    line-height: 1.4;
+    font-size: 14px;
+    font-weight: 500;
+    border-radius: 30px;
+    text-transform: uppercase;
+    transition: all 0.5s ease;
+    vertical-align: middle;
+}
+
+.hero-text a:hover{
+    background-color: transparent;
+    border: 1px solid white;
+    transform: translateX(8px);
+}
+
+.hero-text a.github{
+    background-color: transparent;
+    border: 1px solid white;
+    margin-left: 20px;
+}
+
+.hero-text a.github i{
+    margin-right: 5px;
+}
+
+.icons{
+    position: absolute;
+    top: 50vh;
+    padding: 0 3%;
+    transform: translateY(-50%);
+}
+
+.icons i{
+    display: block;
+    margin: 26px 0;
+    font-size: 24px;
+    transition: all 0.5s ease;
+}
+
+.icons i:hover{
+    color: #787878;
+    transform: translateY(-5px);
+}
+
+.scroll-down{
+    position: absolute;
+    bottom: 4%;
+    right: 3%;
+}
+
+.scroll-down i{
+    display: block;
+    padding: 20px;
+    font-size: 15px;
+    background-color: #21383d;
+    border-radius: 30px;
+    transition: all 0.5s ease;
+}
+
+.scroll-down i:hover{
+    transform: translateY(5px)
+}
+
+/* Usamos Media Queries Para que la Web Sea Responsive */
+
+@media (max-width:992px){
+    
+    .navlist{
+        white-space: nowrap;
+    }
+
+    .hero{
+        grid-template-columns: 1fr 1fr;
+        padding: 30px;
+    }
+
+    .hero-img{
+        text-align: center;
+    }
+
+    .hero-img img{
+        margin: 10% 0 0 10%;
+        width: 90%;
+    }
+    
+    .icons{
+        display: none;
+    }
+
+    .scroll-down{
+        display: none;
+    }
+}
+
+@media (max-width: 768px){
+
+    .menu-icon-action{
+        display: block;
+    }
+
+    #menu-icon{
+        display: block;
+    }
+    
+    .hero{
+        height: 100%;
+        gap: 1rem;
+        grid-template-columns: 1fr;
+    }
+
+    .hero-text{
+        padding-top: 100px;
+        text-align: center;
+    }
+    
+    .hero-text h1{
+        font-size: 130%;
+    }
+
+    .hero-text h4, .hero-text h5{
+        font-size: 90%;
+    }
+
+    .hero-text p{
+        font-size: 80%;
+    }
+
+    .hero-img img{
+        width: 60%;
+        padding-top: 30px;
+        margin: 0;
+    }
+
+    .navlist{
+        position: absolute;
+        top: 100%;
+        right: -100%;
+        width: 200px;
+        height: 180px;
+        background-color: rgba(20, 30, 35, 0.75);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        padding: 15px;
+        transition: all 0.6s ease-out;
+    }
+    
+    .navlist a{
+        display: block;
+        margin: 7px 0;
+    }
+
+    #menu-toggle:checked + label.menu-icon-action + ul{
+        right: 0;
+    }
+}
